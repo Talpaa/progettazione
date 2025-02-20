@@ -1,0 +1,83 @@
+/* Stile per la tabella */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Per evitare doppi bordi */
+    margin: 20px 0px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Intestazioni della tabella */
+  table thead {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  /* Righe della tabella */
+  table tbody tr:nth-child(odd) {
+    background-color: #695c3f65;
+  }
+
+  
+  table tbody tr:nth-child(even) {
+    background-color: #33441c6c;
+  }
+  
+  /* Stile per le celle della tabella */
+  table td, table th {
+    padding: 12px; /* Aggiungi spazio nelle celle */
+    text-align: left;
+    border: 1px solid #dee2e6;
+  }
+
+  /* Stile aggiuntivo per il title */
+  .title-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adatta l'altezza in base alle necessità */
+    background-color: #343a40; /* Colore di sfondo */
+    color: rgb(255, 255, 255); /* Colore del testo */
+    font-weight: bold;
+    text-align: center;
+    font-size: xx-large;
+    border-radius: 10px; /* Angoli arrotondati */
+  }
+
+  /* Utilizza la classe .title-container per il titolo */
+  .title {
+    margin: 0; /* Rimuove margini predefiniti */
+  }
+  
+  /* Stile aggiuntivo per le celle title */
+  #title-column {
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    font-size: xx-large;
+  }
+
+
+
+  /* Effetto al passaggio del mouse su una riga */
+  table tbody tr:hover {
+    background-color: #20a000ab;
+  }
+  
+  /* Bordo della tabella */
+  table {
+    border: 2px solid #007bff;
+    border-radius: 10px; /* Angoli arrotondati */
+  }
+  
+  /* Stile per le celle di intestazione */
+  table th {
+    font-weight: bold; /* Testo in grassetto */
+    text-transform: uppercase; /* Testo maiuscolo */
+    border-bottom: 2px solid #007bff;
+  }
+  
+  /* Colore del bordo per le righe */
+  table td {
+    border-bottom: 1px solid #007bff;
+  }

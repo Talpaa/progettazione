@@ -1,0 +1,130 @@
+/* Resetta i margini e padding di tutti gli elementi */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Impostazioni globali per html e body */
+html, body {
+  height: 100%;  /* Garantisce che la pagina occupi tutta l'altezza */
+  width: 100%;   /* Garantisce che la pagina occupi tutta la larghezza */
+  margin: 0;     /* Rimuove i margini predefiniti */
+  padding: 0;    /* Rimuove il padding predefinito */
+  font-family: Arial, sans-serif; /* Font predefinito */
+  background-color: whitesmoke; /* Colore di sfondo chiaro */
+  display: flex; /* Usa Flexbox per il layout */
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: flex-start; /* Allinea verticalmente in alto */
+}
+
+/* Navbar */
+header {
+  background-color:cadetblue;  /* Colore di sfondo della navbar */
+  padding: 10px 20px;
+  width: 100%;
+  position: sticky;  /* Fissa la navbar in cima */
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  list-style-type: none;  /* Rimuove i punti elenco */
+  display: flex;          /* Disposizione orizzontale */
+  justify-content: center; /* Centra i link della navbar */
+}
+
+.nav-item {
+  color: white;           /* Colore del testo */
+  padding: 8px 20px;      /* Distanza tra i link */
+  text-decoration: none;  /* Rimuove la sottolineatura */
+  font-weight: bold;
+}
+
+.nav-item:hover {
+  background-color:darkcyan; /* Colore di sfondo quando il mouse passa sopra */
+  border-radius: 5px;          /* Aggiunge angoli arrotondati */
+}
+
+/* Contenitore principale dell'app */
+.main-content {
+  width: 1200px;          /* Larghezza fissa per il contenitore principale */
+  height: auto;           /* Rimuove altezza fissa per adattarsi al contenuto */
+  padding: 20px;
+  box-sizing: border-box;  /* Assicura che padding e margini non influiscano sulle dimensioni */
+  text-align: center; /* Centra tutto il testo nella pagina */
+}
+
+/* Tabelle */
+table {
+  width: 100%;          /* La tabella occuperà tutta la larghezza disponibile */
+  border-collapse: collapse;  /* Rimuove lo spazio tra le celle */
+  margin-top: 20px;     /* Aggiungi spazio sopra la tabella */
+  margin-left: auto;    /* Centra la tabella orizzontalmente */
+  margin-right: auto;   /* Centra la tabella orizzontalmente */
+}
+
+/* Intestazioni delle tabelle */
+th {
+  background-color: cadetblue;  /* Colore di sfondo per le intestazioni */
+  color: white;               /* Colore del testo */
+  padding: 8px 12px;          /* Distanza tra il testo e il bordo della cella */
+  text-align: left;           /* Allinea il testo a sinistra */
+}
+
+/* Celle delle tabelle */
+td {
+  padding: 8px 12px;          /* Aggiungi padding nelle celle */
+  border-bottom: 1px solid #ddd; /* Linea di separazione tra le righe */
+  text-align: left;           /* Allinea il testo a sinistra */
+}
+
+/* Righe alternate per maggiore leggibilità */
+tr:nth-child(even) {
+  background-color: #f2f2f2;  /* Colore di sfondo per righe pari */
+}
+
+tr:hover {
+  background-color: #e1e1e1;  /* Colore di sfondo quando la riga è selezionata */
+}
+
+/* Media query per schermi più piccoli (tablet e mobile) */
+@media (max-width: 768px) {
+  /* Le intestazioni possono avere una larghezza ridotta */
+  th, td {
+    padding: 6px 8px;  /* Ridotto il padding */
+  }
+
+  /* Adatta la larghezza della tabella */
+  table {
+    width: 100%;      /* La tabella si espande a tutta la larghezza disponibile */
+    overflow-x: auto; /* Consente lo scroll orizzontale su schermi più piccoli */
+  }
+
+  th {
+    font-size: 0.9rem; /* Ridotto la dimensione del font delle intestazioni */
+  }
+
+  td {
+    font-size: 0.9rem; /* Ridotto la dimensione del font delle celle */
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    width: 100%;      /* La tabella si espande a tutta la larghezza disponibile */
+    overflow-x: auto; /* Consente lo scroll orizzontale su schermi più piccoli */
+  }
+
+  th, td {
+    padding: 5px 7px;  /* Ridotto ulteriormente il padding */
+  }
+
+  th {
+    font-size: 0.8rem; /* Ridotto la dimensione del font delle intestazioni */
+  }
+
+  td {
+    font-size: 0.8rem; /* Ridotto la dimensione del font delle celle */
+  }
+}
