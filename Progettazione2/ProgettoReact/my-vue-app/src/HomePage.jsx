@@ -12,17 +12,17 @@ function HomePage() {
       <section className="home-content">
         <div className="home-card">
           <h2>Elenco<br />Progetti </h2>
-          <Link to="/wp" className="home-link">Visualizza progetti</Link>
+          <Link to="/progetti" className="home-link">Visualizza progetti</Link>
         </div>
 
         <div className="home-card">
           <h2>Elenco<br />Assenze</h2>
-          <Link to="/assenza" className="home-link">Visualizza Assenze</Link>
+          <Link to="/assenze" className="home-link">Visualizza Assenze</Link>
         </div>
 
         <div className="home-card">
           <h2>Elenco<br />Persone</h2>
-          <Link to="/persona" className="home-link">Visualizza Persone</Link>
+          <Link to="/persone" className="home-link">Visualizza Persone</Link>
         </div>
       </section>
     </div>

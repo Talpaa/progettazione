@@ -5,9 +5,9 @@ function Navbar() {
     const location = useLocation();
   
     const isHomePage = location.pathname === '/';
-    const isWpPage = location.pathname === '/wp';
-    const isAssenzaPage = location.pathname === '/assenza';
-    const isPersonaPage = location.pathname === '/persona';
+    const isWpPage = location.pathname === '/progetti';
+    const isAssenzaPage = location.pathname === '/assenze';
+    const isPersonaPage = location.pathname === '/persone';
 
     return (
         // Se non siamo sulla homepage, mostriamo la navbar
@@ -18,13 +18,13 @@ function Navbar() {
               <li><Link to="/" className="nav-item">Home</Link></li>
     
               {/* Nascondi il link 'Elenco WP' se siamo sulla pagina '/wp' */}
-              {!isWpPage && <li><Link to="/wp" className="nav-item">Elenco Progetti</Link></li>}
+              {!isWpPage && <li><Link to="/progetti" className="nav-item">Elenco Progetti</Link></li>}
     
               {/* Nascondi il link 'Elenco Assenze' se siamo sulla pagina '/assenza' */}
-              {!isAssenzaPage && <li><Link to="/assenza" className="nav-item">Elenco Assenze</Link></li>}
+              {!isAssenzaPage && <li><Link to="/assenze" className="nav-item">Elenco Assenze</Link></li>}
     
               {/* Nascondi il link 'Elenco Persone' se siamo sulla pagina '/persona' */}
-              {!isPersonaPage && <li><Link to="/persona" className="nav-item">Elenco Persone</Link></li>}
+              {!isPersonaPage && <li><Link to="/persone" className="nav-item">Elenco Persone</Link></li>}
             </ul>
           </nav>
         )
