@@ -49,7 +49,7 @@ function Persona() {
               <td>{user.cognome}</td>
               <td>{user.posizione}</td>
               <td>{user.stipendio}</td>
-              <td>{user.numero_assenze}</td> {/* Aggiungi il numero di assenze */}
+              <td>{user.assenze}</td> {/* Aggiungi il numero di assenze */}
             </tr>
           ))}
         </tbody>

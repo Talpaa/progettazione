@@ -63,9 +63,6 @@ def get_progetto():
         if (type(connection) == str):
 
             json_backup = carica_json('./json/progetti.json')
-            
-
-            row = {}
 
             for row in json_backup:
                 row['durata'] = calcola_durata_in_giorni(row['inizio'], row['fine'])
@@ -93,9 +90,6 @@ def get_assenza():
         if (type(connection) == str):
 
             json_backup = carica_json('./json/assenze.json')
-
-        
-            row = {}
 
             json_persone = carica_json('./json/persone.json')
 
@@ -131,23 +125,46 @@ def get_persona():
     
     try:
         connection = get_db_connection()
-        cursor = connection.cursor()
 
-        query1 = "SELECT p.id, p.nome, p.cognome, p.posizione, p.stipendio, COUNT(a.persona) AS numero_assenze "
-        query2 = "FROM persona AS p  LEFT JOIN assenza AS a ON p.id = a.persona "
-        query3 = "GROUP BY p.id, p.nome, p.cognome, p.posizione, p.stipendio "
-        query4 = "ORDER BY p.id;"
-        query = query1 + query2 + query3 + query4
-        cursor.execute(query)
-        risultato = cursor.fetchall()
-        cursor.close()
-        connection.close()
+        if (type(connection) == str):
+
+            json_backup = carica_json('./json/persone.json')
+            
+            json_assenze = carica_json('./json/assenze.json')
+
+            for persona in json_backup:
+
+                persona['assenze'] = 0
+
+                for assenza in json_assenze:
+
+                    if ( persona['id'] == assenza['persona']):
+
+                         persona['assenze'] += 1
+
+            
+            
+            return jsonify(json_backup)
+        
+        else:
+            connection = get_db_connection()
+            cursor = connection.cursor()
+
+            query1 = "SELECT p.id, p.nome, p.cognome, p.posizione, p.stipendio, COUNT(a.persona) AS numero_assenze "
+            query2 = "FROM persona AS p  LEFT JOIN assenza AS a ON p.id = a.persona "
+            query3 = "GROUP BY p.id, p.nome, p.cognome, p.posizione, p.stipendio "
+            query4 = "ORDER BY p.id;"
+            query = query1 + query2 + query3 + query4
+            cursor.execute(query)
+            risultato = cursor.fetchall()
+            cursor.close()
+            connection.close()
 
         return jsonify(risultato)
     except psycopg2.Error as e:
             return jsonify({"error": f"Errore nel database : {str(e)}"}), 500
    
-@app.route('/4/<string:table_name>', methods=['GET'])
+"""@app.route('/4/<string:table_name>', methods=['GET'])
 def get_table(table_name):
     try:
         connection = get_db_connection()
@@ -159,7 +176,7 @@ def get_table(table_name):
         connection.close()
         return jsonify(risultato)
     except psycopg2.Error as e:
-        return jsonify({"error": f"Errore nel database : {str(e)}"}), 500
+        return jsonify({"error": f"Errore nel database : {str(e)}"}), 500"""
     
 
 @app.errorhandler(404)
