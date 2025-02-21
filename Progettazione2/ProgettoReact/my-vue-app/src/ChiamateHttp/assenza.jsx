@@ -47,12 +47,21 @@ function Assenza() {
         </thead>
         <tbody>
           {users.map((user) => (
+            <tr key={user.id}>
+              <td> {user.id}</td>
+              <td>{user.persona}</td>
+              <td>{user.tipo}</td>
+              <td>{user.giorno}</td>
+            </tr>
+
+            /* 
             <tr key={user.aid}>
               <td> {user.aid}</td>
               <td>{user.pid}-{user.nome} {user.cognome}</td>
               <td>{user.tipo}</td>
               <td>{user.giorno}</td>
             </tr>
+            */
           ))}
         </tbody>
       </Table>

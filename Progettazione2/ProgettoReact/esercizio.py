@@ -2,10 +2,12 @@
 2)500 404 gestione di errori e ritorna un json 
 3) creazione di un docker per vedere se funziona tutto """
 
+from datetime import datetime
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from flask import Flask, jsonify
 from flask_cors import CORS 
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -28,36 +30,106 @@ def get_db_connection():
     except Exception as e:
         return str(e)
 
+def carica_json(percorso: str):
+    try:
+        with open(percorso, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return {"error": f"File non trovato: {percorso}"}
+    except json.JSONDecodeError:
+        return {"error": f"Errore nella decodifica del file JSON: {percorso}"}
+    except PermissionError:
+        return {"error": f"Permesso negato per il file: {percorso}"}
+    except Exception as e:
+        return {"error": f"Errore generico: {str(e)}"}
+
+def calcola_durata_in_giorni(data_inizio, data_fine):
+    try:
+        # Converti le stringhe di data in oggetti datetime
+        data_inizio = datetime.strptime(data_inizio, '%Y-%m-%d')
+        data_fine = datetime.strptime(data_fine, '%Y-%m-%d')
+        # Calcola la durata in giorni
+        durata = (data_fine - data_inizio).days
+        return durata
+    except Exception as e:
+        return {"error": f"Errore nel calcolo della durata: {str(e)}"}
+
 @app.route('/1', methods=['GET'])
 def get_progetto():
     
+    try:
         connection = get_db_connection()
-        print(connection)
-        cursor = connection.cursor()
-        cursor.execute("SELECT *, (fine - inizio) AS durata_in_giorni FROM progetto")
-        risultato = cursor.fetchall()
-        cursor.close()
-        connection.close()
-        return jsonify(risultato)
+
+        if (type(connection) == str):
+
+            json_backup = carica_json('./json/progetti.json')
+            
+
+            row = {}
+
+            for row in json_backup:
+                row['durata'] = calcola_durata_in_giorni(row['inizio'], row['fine'])
+            
+            return jsonify(json_backup)
+        
+        else:
+            cursor = connection.cursor()
+            cursor.execute("SELECT *, (fine - inizio) AS durata_in_giorni FROM progetto")
+            risultato = cursor.fetchall()
+            cursor.close()
+            connection.close()
+            return jsonify(risultato)
+    except psycopg2.Error as e:
+            
+        return jsonify({"error": f"Errore nel database : {str(e)}"}), 500
     
 
 @app.route('/2', methods=['GET'])
 def get_assenza():
     
+    try:
         connection = get_db_connection()
-        cursor = connection.cursor()
-        query = "SELECT a.id as aid, p.id as pid, p.nome, p. cognome, a.tipo, a.giorno FROM assenza as a, persona as p WHERE a.persona = p.id;"
-        cursor.execute(query)
-        risultato = cursor.fetchall()
-        cursor.close()
-        connection.close()
-        print(risultato)
-        return jsonify(risultato)
+
+        if (type(connection) == str):
+
+            json_backup = carica_json('./json/assenze.json')
+
+        
+            row = {}
+
+            json_persone = carica_json('./json/persone.json')
+
+
+            for row in json_backup:
+                
+                for persona in json_persone:
+
+
+                    print(f"{persona['id']}" + " " + f"{row['persona']}")
+
+                    if persona['id'] == row['persona']:
+
+                        row['persona'] = f"{persona['id']}) {persona['nome']} {persona['cognome']}"
+        
+            print(json_backup)
+            return jsonify(json_backup)
+        else:
+
+            cursor = connection.cursor()
+            query = "SELECT a.id as aid, p.id as pid, p.nome, p. cognome, a.tipo, a.giorno FROM assenza as a, persona as p WHERE a.persona = p.id;"
+            cursor.execute(query)
+            risultato = cursor.fetchall()
+            cursor.close()
+            connection.close()
+            return jsonify(risultato)
+    except psycopg2.Error as e:
+            return jsonify({"error": f"Errore nel database : {str(e)}"}), 500
     
 
 @app.route('/3', methods=['GET'])
 def get_persona():
     
+    try:
         connection = get_db_connection()
         cursor = connection.cursor()
 
@@ -70,8 +142,10 @@ def get_persona():
         risultato = cursor.fetchall()
         cursor.close()
         connection.close()
-        #print(risultato)
+
         return jsonify(risultato)
+    except psycopg2.Error as e:
+            return jsonify({"error": f"Errore nel database : {str(e)}"}), 500
    
 @app.route('/4/<string:table_name>', methods=['GET'])
 def get_table(table_name):

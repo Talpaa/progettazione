@@ -1,0 +1,143 @@
+[
+    {
+      "id": 1,
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "posizione": "ricercatore",
+      "stipendio": 30000
+    },
+    {
+      "id": 2,
+      "nome": "Laura",
+      "cognome": "Bianchi",
+      "posizione": "professore associato",
+      "stipendio": 45000
+    },
+    {
+      "id": 3,
+      "nome": "Giovanni",
+      "cognome": "Verdi",
+      "posizione": "professore ordinario",
+      "stipendio": 60000
+    },
+    {
+      "id": 4,
+      "nome": "Anna",
+      "cognome": "Ferrari",
+      "posizione": "ricercatore",
+      "stipendio": 32000
+    },
+    {
+      "id": 5,
+      "nome": "Paolo",
+      "cognome": "Russo",
+      "posizione": "professore associato",
+      "stipendio": 47000
+    },
+    {
+      "id": 6,
+      "nome": "Elena",
+      "cognome": "Marini",
+      "posizione": "ricercatore",
+      "stipendio": 31000
+    },
+    {
+      "id": 7,
+      "nome": "Luca",
+      "cognome": "Esposito",
+      "posizione": "professore ordinario",
+      "stipendio": 62000
+    },
+    {
+      "id": 8,
+      "nome": "Silvia",
+      "cognome": "De Luca",
+      "posizione": "professore associato",
+      "stipendio": 44000
+    },
+    {
+      "id": 9,
+      "nome": "Andrea",
+      "cognome": "Moretti",
+      "posizione": "ricercatore",
+      "stipendio": 30500
+    },
+    {
+      "id": 10,
+      "nome": "Giulia",
+      "cognome": "Romano",
+      "posizione": "professore associato",
+      "stipendio": 46000
+    },
+    {
+      "id": 11,
+      "nome": "Federico",
+      "cognome": "Colombo",
+      "posizione": "professore ordinario",
+      "stipendio": 61000
+    },
+    {
+      "id": 12,
+      "nome": "Roberta",
+      "cognome": "Conti",
+      "posizione": "ricercatore",
+      "stipendio": 33000
+    },
+    {
+      "id": 13,
+      "nome": "Stefano",
+      "cognome": "Galli",
+      "posizione": "professore associato",
+      "stipendio": 45500
+    },
+    {
+      "id": 14,
+      "nome": "Francesca",
+      "cognome": "Fontana",
+      "posizione": "ricercatore",
+      "stipendio": 31500
+    },
+    {
+      "id": 15,
+      "nome": "Daniele",
+      "cognome": "Barbieri",
+      "posizione": "professore ordinario",
+      "stipendio": 62500
+    },
+    {
+      "id": 16,
+      "nome": "Serena",
+      "cognome": "Martini",
+      "posizione": "professore associato",
+      "stipendio": 47000
+    },
+    {
+      "id": 17,
+      "nome": "Alessandro",
+      "cognome": "Ferri",
+      "posizione": "ricercatore",
+      "stipendio": 34000
+    },
+    {
+      "id": 18,
+      "nome": "Chiara",
+      "cognome": "Leone",
+      "posizione": "professore associato",
+      "stipendio": 48000
+    },
+    {
+      "id": 19,
+      "nome": "Matteo",
+      "cognome": "Serra",
+      "posizione": "professore ordinario",
+      "stipendio": 63000
+    },
+    {
+      "id": 20,
+      "nome": "Valentina",
+      "cognome": "Greco",
+      "posizione": "ricercatore",
+      "stipendio": 32500
+    }
+  ]
+  

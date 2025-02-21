@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "nome": "Artemide",
+      "inizio": "2000-01-01",
+      "fine": "2002-12-31",
+      "budget": 255000
+    },
+    {
+      "id": 2,
+      "nome": "Pegasus",
+      "inizio": "2012-01-01",
+      "fine": "2014-12-31",
+      "budget": 330000
+    },
+    {
+      "id": 3,
+      "nome": "WineSharing",
+      "inizio": "1999-01-01",
+      "fine": "2003-12-31",
+      "budget": 998000
+    },
+    {
+      "id": 4,
+      "nome": "Simap",
+      "inizio": "2010-02-01",
+      "fine": "2014-03-17",
+      "budget": 158000
+    },
+    {
+      "id": 5,
+      "nome": "DropDiscovery",
+      "inizio": "2010-09-13",
+      "fine": "2013-01-20",
+      "budget": 99000
+    }
+]
+  
